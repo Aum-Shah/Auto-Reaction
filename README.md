@@ -43,7 +43,7 @@ Set all environment variables before deploying. - [Instructions](#-configuring-e
 
 ### ✅ Serverless - Free
 
-- [Deploy with Vercel](https://vercel.com/new/clone?repository-url=https://github.com/Aum-Shah/Auto-Reaction-Bot)
+- [Deploy with Vercel](https://vercel.com/new/clone?repository-url=https://github.com/Aum-Shah/Auto-Reaction)
 - [Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/?url=https://github.com/Aum-Shah/Auto-Reaction)
 
 ## 🚀 Deploy with Workers
