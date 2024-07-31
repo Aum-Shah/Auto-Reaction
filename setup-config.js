@@ -38,8 +38,6 @@ function generateDeployYml(packageName) {
         - name: Install dependencies
           run: npm install
         - name: Run setup-config script
-          env:
-            PACKAGE_NAME: ${{ secrets.PACKAGE_NAME }}
           run: node setup-config.js
         - name: Deploy
           uses: cloudflare/wrangler-action@v3
