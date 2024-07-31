@@ -1,13 +1,12 @@
-name: Initial Setup
+name: Deploy to Cloudflare Workers
 
-on:
-  push:
-    branches:
-      - main
+on: 
+  workflow_dispatch:
 
 jobs:
-  setup:
+  deploy:
     runs-on: ubuntu-latest
+    name: Deploy
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node.js
@@ -17,4 +16,21 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run setup-config script
+        env:
+          PACKAGE_NAME: ${{ secrets.PACKAGE_NAME }}
         run: node setup-config.js
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          secrets: |
+            BOT_TOKEN
+            BOT_USERNAME
+            EMOJI_LIST
+            RESTRICTED_CHATS
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          BOT_USERNAME: ${{ secrets.BOT_USERNAME }}
+          EMOJI_LIST: ${{ secrets.EMOJI_LIST }}
+          RESTRICTED_CHATS: ${{ secrets.RESTRICTED_CHATS }}
