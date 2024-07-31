@@ -1,0 +1,20 @@
+name: Initial Setup
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'latest'
+      - name: Install dependencies
+        run: npm install
+      - name: Run setup-config script
+        run: node setup-config.js
