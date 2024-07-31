@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 // Function to generate wrangler.toml
 function generateWranglerToml(packageName) {
@@ -11,9 +11,10 @@ function generateWranglerToml(packageName) {
 
 // Function to update package.json name
 function updatePackageName(packageName) {
-  const packageJson = require('./package.json');
+  const packageJsonPath = path.resolve('package.json');
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
   packageJson.name = packageName;
-  fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
+  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
   console.log(`Package name set to ${packageName}`);
 }
 
