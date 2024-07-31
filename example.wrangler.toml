@@ -1,0 +1,9 @@
+name = "auto-reaction-bot"
+main = "api/index.js"
+compatibility_date = "2024-02-08"
+
+[vars]
+BOT_TOKEN = "12345678:PASTE-YOUR-BOT-TOKEN-HERE"
+BOT_USERNAME = "WarFade_rBot"
+EMOJI_LIST = "❤👍🔥🥰🎉🤩😍💯😘😎"
+RESTRICTED_CHATS = "-100294948593,3848582834"

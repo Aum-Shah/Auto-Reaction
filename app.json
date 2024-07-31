@@ -1,0 +1,36 @@
+{
+    "name": "auto-reaction-bot",
+    "description": "A Telegram Bot that automatically reacts to posts in Telegram Channels, groups, and private messages, developed as a serverless application.",
+    "repository": "https://github.com/Aum-Shah/Auto-Reaction-Bot",
+    "env": {
+      "BOT_TOKEN": {
+        "description": "Telegram Bot Token",
+        "required": true
+      },
+      "BOT_USERNAME": {
+        "description": "Username Of Bot (Without @)",
+        "required": true
+      },
+      "EMOJI_LIST": {
+        "description": "Emoji List (Without , )",
+        "required": true
+      },
+      "RESTRICTED_CHATS": {
+        "description": "Restricted Chats Id (-100294948593,3848582834)",
+        "required": false
+      },
+      "PORT": {
+        "description": "Port To Run Web On (Optional)",
+        "required": false,
+        "value": "3000"
+      }
+    },
+    "scripts": {
+      "postdeploy": "npm install && npm run build"
+    },
+    "formation": {
+      "web": {
+        "quantity": 1
+      }
+    }
+  }  
