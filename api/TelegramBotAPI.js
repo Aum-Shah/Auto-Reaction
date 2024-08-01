@@ -33,12 +33,15 @@ export default class TelegramBotAPI {
     }
 
     async sendMessage(chatId, text, inlineKeyboard = null) {
-        await this.callApi('sendMessage', {
+        const body = {
             chat_id: chatId,
             text: text,
             parse_mode: "HTML",
-            disable_web_page_preview:true,
-            ...(inlineKeyboard && { reply_markup: { inline_keyboard: inlineKeyboard } })
-        });
-    }    
+            disable_web_page_preview: true
+        };
+        if (inlineKeyboard) {
+            body.reply_markup = { inline_keyboard: inlineKeyboard };
+        }
+        await this.callApi('sendMessage', body);
+    }
 };
