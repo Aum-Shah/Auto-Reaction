@@ -42,33 +42,27 @@ async function onUpdate(data, botApi, Reactions, RestrictedChats, botUsername) {
         text = content.text;
 
         if (data.message && (text === '/start' || text === '/start@' + botUsername)) {
-            await botApi.sendMessage(chatId, startMessage.replace('UserName', content.chat.type === "private" ? content.from.first_name : content.chat.title),
-                {
-                    reply_markup: {
-                        inline_keyboard: [
-                            [
-                                {
-                                    "text": "Add Me To Channel ",
-                                    "url": `https://t.me/${botUsername}?startchannel=true`
-                                },
-                                {
-                                    "text": "Add Me To Group ",
-                                    "url": `https://t.me/${botUsername}?startgroup=true`
-                                },
-                            ],
-                            [
-                                {
-                                    "text": "Contact Owner ",
-                                    "url": "https://t.me/WarFade"
-                                }
-                            ]
-                        ]
+            await botApi.sendMessage(chatId, startMessage.replace('UserName', content.chat.type === "private" ? content.from.first_name : content.chat.title), [
+                [
+                    {
+                        text: "Add Me To Channel 🥰",
+                        url: `https://t.me/${botUsername}?startchannel=true`
+                    },
+                    {
+                        text: "Add Me To Group 💝",
+                        url: `https://t.me/${botUsername}?startgroup=true`
+                    },
+                ],
+                [
+                    {
+                        text: "Contact Owner 💯",
+                        url: "https://t.me/WarFade"
                     }
-                }
-            );
+                ]
+            ]);
         } else if (data.message && text === '/reactions') {
             const reactions = Reactions.join(", ");
-            await botApi.sendMessage(chatId, "<b> A R\n\n P E T T R A E I Y G/C F P F O B :</b> \n\n" + reactions, { parse_mode: 'HTML' });
+            await botApi.sendMessage(chatId, "<b>📌 Aᴠᴀɪʟᴀʙʟᴇ Rᴇᴀᴄᴛɪᴏɴꜱ\n\n♻️ Pʟᴇᴀꜱᴇ Eɴꜱᴜʀᴇ Tʜᴀᴛ Tʜᴇꜱᴇ Rᴇᴀᴄᴛɪᴏɴꜱ Aʀᴇ Eɴᴀʙʟᴇᴅ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ/Cʜᴀɴɴᴇʟ Fᴏʀ Pʀᴏᴘᴇʀ Fᴜɴᴄᴛɪᴏɴɪɴɢ Oꜰ Bᴏᴛ :</b> \n\n" + reactions, null);
         } else {
             if (!RestrictedChats.includes(chatId)) {
                 await botApi.setMessageReaction(chatId, message_id, getRandomPositiveReaction(Reactions));
