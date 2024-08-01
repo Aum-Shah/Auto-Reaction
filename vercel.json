@@ -13,10 +13,10 @@
       }
     ],
     "env": {
-      "BOT_TOKEN": "Telegram Bot Token",
-      "BOT_USERNAME": "Username Of Bot (Without @)",
-      "EMOJI_LIST": "Emoji List (Without , )",
-      "RESTRICTED_CHATS": "Restricted Chats Id (-100294948593,3848582834)"
+      "BOT_TOKEN": "7386410025:AAFoZrDlsrTU1ul0dbgGZP-94WipJyDO72o",
+      "BOT_USERNAME": "Munna_Payment_Test_Bot",
+      "EMOJI_LIST": "👍❤️🔥",
+      "RESTRICTED_CHATS": "1"
     }
   }
   
